@@ -2,90 +2,163 @@
 // src/components/Navbar.astro
 ---
 
-<header class="fixed top-0 left-0 w-full z-50 transition-all duration-500" id="main-header">
+<header
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-500"
+  id="main-header"
+>
   <!-- Top Utility Bar (Minimalist) -->
-  <div class="w-full bg-white/80 backdrop-blur-sm border-b border-black/5 py-1.5 px-6 lg:px-12 transition-all duration-500 hidden sm:block" id="top-utility-bar">
-    <div class="max-w-[1440px] mx-auto flex justify-between items-center text-[10px] uppercase tracking-[0.2em] font-medium text-neutral-500">
-      <!-- Left side: SLA status -->
-      <div class="flex items-center gap-2">
-        <span class="relative flex h-1.5 w-1.5">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-        </span>
-        <span class="text-neutral-600">SLA Global Activo: 99.999%</span>
-      </div>
-      <!-- Right side: Utility links -->
-      <div class="flex items-center gap-6">
-        <a href="#contacto" class="hover:text-huus-dark transition-colors">Soporte NOC</a>
-        <a href="#cobertura" class="hover:text-huus-dark transition-colors">Estado de Red</a>
-        <a href="#portal" class="text-huus-violet font-semibold hover:text-huus-dark transition-colors flex items-center gap-1">
-          Portal de Clientes 
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-        </a>
-      </div>
-    </div>
-  </div>
 
-  <div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-4 lg:py-5 flex items-center justify-between transition-all duration-500" id="navbar-container">
+  <div
+    class="max-w-[1440px] mx-auto px-6 lg:px-12 py-4 lg:py-5 flex items-center justify-between transition-all duration-500"
+    id="navbar-container"
+  >
     <!-- Brand Logo -->
     <a href="/" class="flex items-center gap-2 group">
-      <span class="font-display text-2xl lg:text-3xl font-bold tracking-tighter text-huus-dark transition-all duration-300 flex items-center">
+      <span
+        class="font-display text-2xl lg:text-3xl font-bold tracking-tighter text-huus-dark transition-all duration-300 flex items-center"
+      >
         HUUS<span class="text-huus-violet ml-[1px]">+</span>
       </span>
     </a>
 
     <!-- Navigation Desktop Menu (Minimalist Linear style) -->
     <nav class="hidden lg:flex items-center gap-10">
-      <a href="#huus-plus" class="font-display font-medium text-sm text-neutral-500 hover:text-huus-dark transition-all duration-300 py-2">
+      <a
+        href="#huus-plus"
+        class="font-display font-medium text-sm text-neutral-500 hover:text-huus-dark transition-all duration-300 py-2"
+      >
         Plataforma
       </a>
-      
+
       <!-- Dropdown Soluciones -->
       <div class="relative group/mega py-2">
-        <button class="flex items-center gap-1.5 font-display font-medium text-sm text-neutral-500 group-hover/mega:text-huus-dark transition-all duration-300 cursor-pointer">
+        <button
+          class="flex items-center gap-1.5 font-display font-medium text-sm text-neutral-500 group-hover/mega:text-huus-dark transition-all duration-300 cursor-pointer"
+        >
           Soluciones
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 transition-transform duration-300 group-hover/mega:rotate-180 opacity-50">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="w-3 h-3 transition-transform duration-300 group-hover/mega:rotate-180 opacity-50"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
           </svg>
         </button>
 
         <!-- Solutions Mega Menu (Vercel style clean layout) -->
-        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white border border-black/[0.08] backdrop-blur-2xl p-6 rounded-[24px] shadow-[0_16px_40px_rgba(0,0,0,0.06)] opacity-0 invisible translate-y-2 group-hover/mega:opacity-100 group-hover/mega:visible group-hover/mega:translate-y-0 transition-all duration-300 pointer-events-none group-hover/mega:pointer-events-auto flex gap-6 z-50">
-          
+        <div
+          class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white border border-black/[0.08] backdrop-blur-2xl p-6 rounded-[24px] shadow-[0_16px_40px_rgba(0,0,0,0.06)] opacity-0 invisible translate-y-2 group-hover/mega:opacity-100 group-hover/mega:visible group-hover/mega:translate-y-0 transition-all duration-300 pointer-events-none group-hover/mega:pointer-events-auto flex gap-6 z-50"
+        >
           <!-- Column 1: Conectividad -->
           <div class="flex-1">
-            <h4 class="font-display text-[11px] uppercase tracking-wider text-neutral-400 font-semibold mb-4 px-3">Conectividad</h4>
+            <h4
+              class="font-display text-[11px] uppercase tracking-wider text-neutral-400 font-semibold mb-4 px-3"
+            >
+              Conectividad
+            </h4>
             <ul class="space-y-1">
               <li>
-                <a href="#soluciones" class="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-colors tab-trigger-link" data-target-tab="conectividad">
-                  <div class="mt-0.5 p-1.5 rounded-lg bg-white border border-black/5 shadow-sm text-huus-violet group-hover/item:text-huus-dark transition-colors">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>
+                <a
+                  href="#soluciones"
+                  class="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-colors tab-trigger-link"
+                  data-target-tab="conectividad"
+                >
+                  <div
+                    class="mt-0.5 p-1.5 rounded-lg bg-white border border-black/5 shadow-sm text-huus-violet group-hover/item:text-huus-dark transition-colors"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
+                      ></path></svg
+                    >
                   </div>
                   <div>
-                    <span class="block text-sm font-semibold text-huus-dark mb-0.5">Internet Dedicado</span>
-                    <span class="block text-xs text-neutral-500 leading-tight">Ancho de banda 1:1 simétrico.</span>
+                    <span
+                      class="block text-sm font-semibold text-huus-dark mb-0.5"
+                      >Internet Dedicado</span
+                    >
+                    <span class="block text-xs text-neutral-500 leading-tight"
+                      >Ancho de banda 1:1 simétrico.</span
+                    >
                   </div>
                 </a>
               </li>
               <li>
-                <a href="#soluciones" class="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-colors tab-trigger-link" data-target-tab="conectividad">
-                  <div class="mt-0.5 p-1.5 rounded-lg bg-white border border-black/5 shadow-sm text-huus-violet group-hover/item:text-huus-dark transition-colors">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" /></svg>
+                <a
+                  href="#soluciones"
+                  class="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-colors tab-trigger-link"
+                  data-target-tab="conectividad"
+                >
+                  <div
+                    class="mt-0.5 p-1.5 rounded-lg bg-white border border-black/5 shadow-sm text-huus-violet group-hover/item:text-huus-dark transition-colors"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"
+                      ></path></svg
+                    >
                   </div>
                   <div>
-                    <span class="block text-sm font-semibold text-huus-dark mb-0.5">Alta Disponibilidad</span>
-                    <span class="block text-xs text-neutral-500 leading-tight">Conexiones redundantes automáticas.</span>
+                    <span
+                      class="block text-sm font-semibold text-huus-dark mb-0.5"
+                      >Alta Disponibilidad</span
+                    >
+                    <span class="block text-xs text-neutral-500 leading-tight"
+                      >Conexiones redundantes automáticas.</span
+                    >
                   </div>
                 </a>
               </li>
               <li>
-                <a href="#soluciones" class="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-colors tab-trigger-link" data-target-tab="conectividad">
-                  <div class="mt-0.5 p-1.5 rounded-lg bg-white border border-black/5 shadow-sm text-huus-violet group-hover/item:text-huus-dark transition-colors">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+                <a
+                  href="#soluciones"
+                  class="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-colors tab-trigger-link"
+                  data-target-tab="conectividad"
+                >
+                  <div
+                    class="mt-0.5 p-1.5 rounded-lg bg-white border border-black/5 shadow-sm text-huus-violet group-hover/item:text-huus-dark transition-colors"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                      ></path></svg
+                    >
                   </div>
                   <div>
-                    <span class="block text-sm font-semibold text-huus-dark mb-0.5">VPN & SD-WAN</span>
-                    <span class="block text-xs text-neutral-500 leading-tight">Conectividad segura multi-sitio.</span>
+                    <span
+                      class="block text-sm font-semibold text-huus-dark mb-0.5"
+                      >VPN & SD-WAN</span
+                    >
+                    <span class="block text-xs text-neutral-500 leading-tight"
+                      >Conectividad segura multi-sitio.</span
+                    >
                   </div>
                 </a>
               </li>
@@ -94,142 +167,338 @@
 
           <!-- Column 2: Servicios Administrados -->
           <div class="flex-1">
-            <h4 class="font-display text-[11px] uppercase tracking-wider text-neutral-400 font-semibold mb-4 px-3">Servicios Administrados</h4>
+            <h4
+              class="font-display text-[11px] uppercase tracking-wider text-neutral-400 font-semibold mb-4 px-3"
+            >
+              Servicios Administrados
+            </h4>
             <ul class="space-y-1">
               <li>
-                <a href="#soluciones" class="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-colors tab-trigger-link" data-target-tab="servicios-administrados">
-                  <div class="mt-0.5 p-1.5 rounded-lg bg-white border border-black/5 shadow-sm text-huus-violet group-hover/item:text-huus-dark transition-colors">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
+                <a
+                  href="#soluciones"
+                  class="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-colors tab-trigger-link"
+                  data-target-tab="servicios-administrados"
+                >
+                  <div
+                    class="mt-0.5 p-1.5 rounded-lg bg-white border border-black/5 shadow-sm text-huus-violet group-hover/item:text-huus-dark transition-colors"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                      ></path></svg
+                    >
                   </div>
                   <div>
-                    <span class="block text-sm font-semibold text-huus-dark mb-0.5">Comunicaciones Unificadas</span>
-                    <span class="block text-xs text-neutral-500 leading-tight">Voz, video y chat corporativo.</span>
+                    <span
+                      class="block text-sm font-semibold text-huus-dark mb-0.5"
+                      >Comunicaciones Unificadas</span
+                    >
+                    <span class="block text-xs text-neutral-500 leading-tight"
+                      >Voz, video y chat corporativo.</span
+                    >
                   </div>
                 </a>
               </li>
               <li>
-                <a href="#soluciones" class="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-colors tab-trigger-link" data-target-tab="servicios-administrados">
-                  <div class="mt-0.5 p-1.5 rounded-lg bg-white border border-black/5 shadow-sm text-huus-violet group-hover/item:text-huus-dark transition-colors">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z" /></svg>
+                <a
+                  href="#soluciones"
+                  class="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-colors tab-trigger-link"
+                  data-target-tab="servicios-administrados"
+                >
+                  <div
+                    class="mt-0.5 p-1.5 rounded-lg bg-white border border-black/5 shadow-sm text-huus-violet group-hover/item:text-huus-dark transition-colors"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z"
+                      ></path></svg
+                    >
                   </div>
                   <div>
-                    <span class="block text-sm font-semibold text-huus-dark mb-0.5">WiFi Administrado</span>
-                    <span class="block text-xs text-neutral-500 leading-tight">Redes de alta densidad gestionadas.</span>
+                    <span
+                      class="block text-sm font-semibold text-huus-dark mb-0.5"
+                      >WiFi Administrado</span
+                    >
+                    <span class="block text-xs text-neutral-500 leading-tight"
+                      >Redes de alta densidad gestionadas.</span
+                    >
                   </div>
                 </a>
               </li>
               <li>
-                <a href="#soluciones" class="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-colors tab-trigger-link" data-target-tab="servicios-administrados">
-                  <div class="mt-0.5 p-1.5 rounded-lg bg-white border border-black/5 shadow-sm text-huus-violet group-hover/item:text-huus-dark transition-colors">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+                <a
+                  href="#soluciones"
+                  class="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 transition-colors tab-trigger-link"
+                  data-target-tab="servicios-administrados"
+                >
+                  <div
+                    class="mt-0.5 p-1.5 rounded-lg bg-white border border-black/5 shadow-sm text-huus-violet group-hover/item:text-huus-dark transition-colors"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                      ></path></svg
+                    >
                   </div>
                   <div>
-                    <span class="block text-sm font-semibold text-huus-dark mb-0.5">Ciberseguridad Perimetral</span>
-                    <span class="block text-xs text-neutral-500 leading-tight">Firewalls y protección avanzada (UTM).</span>
+                    <span
+                      class="block text-sm font-semibold text-huus-dark mb-0.5"
+                      >Ciberseguridad Perimetral</span
+                    >
+                    <span class="block text-xs text-neutral-500 leading-tight"
+                      >Firewalls y protección avanzada (UTM).</span
+                    >
                   </div>
                 </a>
               </li>
             </ul>
           </div>
-          
+
           <!-- Column 3: Data Center Highlight -->
-          <div class="flex-1 bg-neutral-50 rounded-[20px] p-5 border border-black/5 flex flex-col justify-between">
+          <div
+            class="flex-1 bg-neutral-50 rounded-[20px] p-5 border border-black/5 flex flex-col justify-between"
+          >
             <div>
-              <div class="w-10 h-10 rounded-xl bg-white shadow-sm border border-black/5 flex items-center justify-center text-huus-violet mb-4">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z" /></svg>
+              <div
+                class="w-10 h-10 rounded-xl bg-white shadow-sm border border-black/5 flex items-center justify-center text-huus-violet mb-4"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z"
+                  ></path></svg
+                >
               </div>
-              <h5 class="text-sm font-semibold text-huus-dark mb-2">Data Center Monterrey V</h5>
+              <h5 class="text-sm font-semibold text-huus-dark mb-2">
+                Data Center Monterrey V
+              </h5>
               <p class="text-xs text-neutral-500 mb-4 leading-relaxed">
-                Infraestructura Tier III redundante. Espacios de co-ubicación premium con conectividad hasta 400 Gbps.
+                Infraestructura Tier III redundante. Espacios de co-ubicación
+                premium con conectividad hasta 400 Gbps.
               </p>
             </div>
-            <a href="#contacto" class="text-xs font-semibold text-huus-dark hover:text-huus-violet transition-colors flex items-center gap-1 group/link">
+            <a
+              href="#contacto"
+              class="text-xs font-semibold text-huus-dark hover:text-huus-violet transition-colors flex items-center gap-1 group/link"
+            >
               Explorar instalaciones
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-1"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke="currentColor"
+                class="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-1"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path></svg
+              >
             </a>
           </div>
-
         </div>
       </div>
 
-      <a href="#cobertura" class="font-display font-medium text-sm text-neutral-500 hover:text-huus-dark transition-all duration-300 py-2">
+      <a
+        href="#cobertura"
+        class="font-display font-medium text-sm text-neutral-500 hover:text-huus-dark transition-all duration-300 py-2"
+      >
         Red & Cobertura
       </a>
-      
-      <a href="#contacto" class="font-display font-medium text-sm text-neutral-500 hover:text-huus-dark transition-all duration-300 py-2">
+
+      <a
+        href="#contacto"
+        class="font-display font-medium text-sm text-neutral-500 hover:text-huus-dark transition-all duration-300 py-2"
+      >
         Empresa
       </a>
     </nav>
 
     <!-- Right Side CTA (Vercel Style) -->
     <div class="hidden lg:flex items-center gap-4">
-      <a href="#contacto" class="text-sm font-medium text-neutral-600 hover:text-huus-dark transition-colors px-2">
+      <a
+        href="#contacto"
+        class="text-sm font-medium text-neutral-600 hover:text-huus-dark transition-colors px-2"
+      >
         Contacto
       </a>
-      <a href="#contacto" class="relative flex items-center justify-center px-5 py-2.5 rounded-full bg-huus-dark text-white font-medium text-sm transition-all duration-300 hover:bg-black hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)] active:scale-95 group">
+      <a
+        href="#contacto"
+        class="relative flex items-center justify-center px-5 py-2.5 rounded-full bg-huus-dark text-white font-medium text-sm transition-all duration-300 hover:bg-black hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)] active:scale-95 group"
+      >
         Cotizar Servicio
       </a>
     </div>
 
     <!-- Mobile Menu Button -->
-    <button class="lg:hidden flex flex-col justify-center gap-1.5 w-6 h-6 z-50 relative cursor-pointer" id="mobile-menu-toggle" aria-label="Toggle Menu">
-      <span class="w-full h-0.5 bg-huus-dark transition-transform duration-300 origin-center" id="bar1"></span>
-      <span class="w-full h-0.5 bg-huus-dark transition-opacity duration-300" id="bar2"></span>
-      <span class="w-full h-0.5 bg-huus-dark transition-transform duration-300 origin-center" id="bar3"></span>
+    <button
+      class="lg:hidden flex flex-col justify-center gap-1.5 w-6 h-6 z-50 relative cursor-pointer"
+      id="mobile-menu-toggle"
+      aria-label="Toggle Menu"
+    >
+      <span
+        class="w-full h-0.5 bg-huus-dark transition-transform duration-300 origin-center"
+        id="bar1"></span>
+      <span
+        class="w-full h-0.5 bg-huus-dark transition-opacity duration-300"
+        id="bar2"></span>
+      <span
+        class="w-full h-0.5 bg-huus-dark transition-transform duration-300 origin-center"
+        id="bar3"></span>
     </button>
   </div>
 
   <!-- Mobile Menu Overlay -->
-  <div class="fixed inset-0 bg-white/98 z-40 backdrop-blur-2xl flex flex-col px-6 py-24 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] translate-x-full lg:hidden overflow-y-auto" id="mobile-menu">
+  <div
+    class="fixed inset-0 bg-white/98 z-40 backdrop-blur-2xl flex flex-col px-6 py-24 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] translate-x-full lg:hidden overflow-y-auto"
+    id="mobile-menu"
+  >
     <div class="flex flex-col gap-6 my-auto">
-      <a href="#huus-plus" class="mobile-nav-link font-display text-2xl font-bold tracking-tight text-huus-dark hover:text-huus-violet transition-colors pb-4 border-b border-black/5">
+      <a
+        href="#huus-plus"
+        class="mobile-nav-link font-display text-2xl font-bold tracking-tight text-huus-dark hover:text-huus-violet transition-colors pb-4 border-b border-black/5"
+      >
         Plataforma
       </a>
-      
+
       <!-- Mobile Solutions Accordion -->
       <div class="flex flex-col border-b border-black/5 pb-4">
-        <button class="flex items-center justify-between text-left font-display text-2xl font-bold tracking-tight text-huus-dark hover:text-huus-violet transition-colors cursor-pointer" id="mobile-soluciones-toggle">
+        <button
+          class="flex items-center justify-between text-left font-display text-2xl font-bold tracking-tight text-huus-dark hover:text-huus-violet transition-colors cursor-pointer"
+          id="mobile-soluciones-toggle"
+        >
           Soluciones
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 transition-transform duration-300" id="mobile-accordion-arrow">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.5"
+            stroke="currentColor"
+            class="w-5 h-5 transition-transform duration-300"
+            id="mobile-accordion-arrow"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
           </svg>
         </button>
-        
+
         <!-- Accordion Content -->
-        <div class="max-h-0 overflow-hidden transition-all duration-500 flex flex-col gap-6 mt-0" id="mobile-solutions-content">
+        <div
+          class="max-h-0 overflow-hidden transition-all duration-500 flex flex-col gap-6 mt-0"
+          id="mobile-solutions-content"
+        >
           <div class="pt-4 pl-4 flex flex-col gap-5">
             <div>
-              <h5 class="text-huus-violet text-xs uppercase tracking-widest font-semibold mb-3">Conectividad</h5>
+              <h5
+                class="text-huus-violet text-xs uppercase tracking-widest font-semibold mb-3"
+              >
+                Conectividad
+              </h5>
               <ul class="space-y-3 text-sm text-neutral-600 font-medium">
-                <li><a href="#soluciones" class="mobile-nav-link hover:text-huus-dark mobile-tab-link block" data-target-tab="conectividad">Internet Dedicado</a></li>
-                <li><a href="#soluciones" class="mobile-nav-link hover:text-huus-dark mobile-tab-link block" data-target-tab="conectividad">Alta Disponibilidad</a></li>
-                <li><a href="#soluciones" class="mobile-nav-link hover:text-huus-dark mobile-tab-link block" data-target-tab="conectividad">VPN & SD-WAN</a></li>
+                <li>
+                  <a
+                    href="#soluciones"
+                    class="mobile-nav-link hover:text-huus-dark mobile-tab-link block"
+                    data-target-tab="conectividad">Internet Dedicado</a>
+                </li>
+                <li>
+                  <a
+                    href="#soluciones"
+                    class="mobile-nav-link hover:text-huus-dark mobile-tab-link block"
+                    data-target-tab="conectividad">Alta Disponibilidad</a>
+                </li>
+                <li>
+                  <a
+                    href="#soluciones"
+                    class="mobile-nav-link hover:text-huus-dark mobile-tab-link block"
+                    data-target-tab="conectividad">VPN & SD-WAN</a>
+                </li>
               </ul>
             </div>
-            
+
             <div>
-              <h5 class="text-huus-electric text-xs uppercase tracking-widest font-semibold mb-3">Servicios Administrados</h5>
+              <h5
+                class="text-huus-electric text-xs uppercase tracking-widest font-semibold mb-3"
+              >
+                Servicios Administrados
+              </h5>
               <ul class="space-y-3 text-sm text-neutral-600 font-medium">
-                <li><a href="#soluciones" class="mobile-nav-link hover:text-huus-dark mobile-tab-link block" data-target-tab="servicios-administrados">Comunicaciones Unificadas</a></li>
-                <li><a href="#soluciones" class="mobile-nav-link hover:text-huus-dark mobile-tab-link block" data-target-tab="servicios-administrados">Red Wifi Administrada</a></li>
-                <li><a href="#soluciones" class="mobile-nav-link hover:text-huus-dark mobile-tab-link block" data-target-tab="servicios-administrados">Ciberseguridad Perimetral</a></li>
+                <li>
+                  <a
+                    href="#soluciones"
+                    class="mobile-nav-link hover:text-huus-dark mobile-tab-link block"
+                    data-target-tab="servicios-administrados"
+                    >Comunicaciones Unificadas</a>
+                </li>
+                <li>
+                  <a
+                    href="#soluciones"
+                    class="mobile-nav-link hover:text-huus-dark mobile-tab-link block"
+                    data-target-tab="servicios-administrados"
+                    >Red Wifi Administrada</a>
+                </li>
+                <li>
+                  <a
+                    href="#soluciones"
+                    class="mobile-nav-link hover:text-huus-dark mobile-tab-link block"
+                    data-target-tab="servicios-administrados"
+                    >Ciberseguridad Perimetral</a>
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
 
-      <a href="#cobertura" class="mobile-nav-link font-display text-2xl font-bold tracking-tight text-huus-dark hover:text-huus-violet transition-colors pb-4 border-b border-black/5">
+      <a
+        href="#cobertura"
+        class="mobile-nav-link font-display text-2xl font-bold tracking-tight text-huus-dark hover:text-huus-violet transition-colors pb-4 border-b border-black/5"
+      >
         Red & Cobertura
       </a>
-      
-      <a href="#contacto" class="mobile-nav-link font-display text-2xl font-bold tracking-tight text-huus-dark hover:text-huus-violet transition-colors pb-4 border-b border-black/5">
+
+      <a
+        href="#contacto"
+        class="mobile-nav-link font-display text-2xl font-bold tracking-tight text-huus-dark hover:text-huus-violet transition-colors pb-4 border-b border-black/5"
+      >
         Empresa
       </a>
     </div>
 
     <div class="mt-8">
-      <a href="#contacto" class="mobile-nav-link block text-center py-4 bg-huus-dark text-white font-medium text-lg rounded-[20px] transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-sm">
+      <a
+        href="#contacto"
+        class="mobile-nav-link block text-center py-4 bg-huus-dark text-white font-medium text-lg rounded-[20px] transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-sm"
+      >
         Cotizar Servicio
       </a>
     </div>
@@ -237,86 +506,104 @@
 </header>
 
 <script>
-  const header = document.getElementById('main-header');
-  const topUtilityBar = document.getElementById('top-utility-bar');
-  const navbarContainer = document.getElementById('navbar-container');
-  
-  const toggleBtn = document.getElementById('mobile-menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const bar1 = document.getElementById('bar1');
-  const bar2 = document.getElementById('bar2');
-  const bar3 = document.getElementById('bar3');
+  const header = document.getElementById("main-header");
+  const topUtilityBar = document.getElementById("top-utility-bar");
+  const navbarContainer = document.getElementById("navbar-container");
 
-  const mobileSolucionesToggle = document.getElementById('mobile-soluciones-toggle');
-  const mobileSolutionsContent = document.getElementById('mobile-solutions-content');
-  const accordionArrow = document.getElementById('mobile-accordion-arrow');
+  const toggleBtn = document.getElementById("mobile-menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const bar1 = document.getElementById("bar1");
+  const bar2 = document.getElementById("bar2");
+  const bar3 = document.getElementById("bar3");
+
+  const mobileSolucionesToggle = document.getElementById(
+    "mobile-soluciones-toggle",
+  );
+  const mobileSolutionsContent = document.getElementById(
+    "mobile-solutions-content",
+  );
+  const accordionArrow = document.getElementById("mobile-accordion-arrow");
 
   // Change header background on scroll
-  window.addEventListener('scroll', () => {
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 40) {
-      topUtilityBar?.classList.add('-translate-y-full', 'hidden');
-      header?.classList.add('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-black/[0.05]', 'shadow-[0_4px_20px_rgba(0,0,0,0.02)]');
-      navbarContainer?.classList.remove('py-4', 'lg:py-5');
-      navbarContainer?.classList.add('py-3', 'lg:py-3.5');
+      topUtilityBar?.classList.add("-translate-y-full", "hidden");
+      header?.classList.add(
+        "bg-white/90",
+        "backdrop-blur-md",
+        "border-b",
+        "border-black/[0.05]",
+        "shadow-[0_4px_20px_rgba(0,0,0,0.02)]",
+      );
+      navbarContainer?.classList.remove("py-4", "lg:py-5");
+      navbarContainer?.classList.add("py-3", "lg:py-3.5");
     } else {
-      topUtilityBar?.classList.remove('-translate-y-full', 'hidden');
-      header?.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-black/[0.05]', 'shadow-[0_4px_20px_rgba(0,0,0,0.02)]');
-      navbarContainer?.classList.remove('py-3', 'lg:py-3.5');
-      navbarContainer?.classList.add('py-4', 'lg:py-5');
+      topUtilityBar?.classList.remove("-translate-y-full", "hidden");
+      header?.classList.remove(
+        "bg-white/90",
+        "backdrop-blur-md",
+        "border-b",
+        "border-black/[0.05]",
+        "shadow-[0_4px_20px_rgba(0,0,0,0.02)]",
+      );
+      navbarContainer?.classList.remove("py-3", "lg:py-3.5");
+      navbarContainer?.classList.add("py-4", "lg:py-5");
     }
   });
 
   // Mobile menu open/close
   let mobileMenuOpen = false;
-  toggleBtn?.addEventListener('click', () => {
+  toggleBtn?.addEventListener("click", () => {
     mobileMenuOpen = !mobileMenuOpen;
     if (mobileMenuOpen) {
-      mobileMenu?.classList.remove('translate-x-full');
-      bar1?.classList.add('rotate-45', 'translate-y-[7px]');
-      bar2?.classList.add('opacity-0');
-      bar3?.classList.add('-rotate-45', '-translate-y-[7px]');
-      document.body.classList.add('overflow-hidden');
+      mobileMenu?.classList.remove("translate-x-full");
+      bar1?.classList.add("rotate-45", "translate-y-[7px]");
+      bar2?.classList.add("opacity-0");
+      bar3?.classList.add("-rotate-45", "-translate-y-[7px]");
+      document.body.classList.add("overflow-hidden");
     } else {
-      mobileMenu?.classList.add('translate-x-full');
-      bar1?.classList.remove('rotate-45', 'translate-y-[7px]');
-      bar2?.classList.remove('opacity-0');
-      bar3?.classList.remove('-rotate-45', '-translate-y-[7px]');
-      document.body.classList.remove('overflow-hidden');
+      mobileMenu?.classList.add("translate-x-full");
+      bar1?.classList.remove("rotate-45", "translate-y-[7px]");
+      bar2?.classList.remove("opacity-0");
+      bar3?.classList.remove("-rotate-45", "-translate-y-[7px]");
+      document.body.classList.remove("overflow-hidden");
     }
   });
 
   // Mobile navigation links click
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
+  const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
       mobileMenuOpen = false;
-      mobileMenu?.classList.add('translate-x-full');
-      bar1?.classList.remove('rotate-45', 'translate-y-[7px]');
-      bar2?.classList.remove('opacity-0');
-      bar3?.classList.remove('-rotate-45', '-translate-y-[7px]');
-      document.body.classList.remove('overflow-hidden');
+      mobileMenu?.classList.add("translate-x-full");
+      bar1?.classList.remove("rotate-45", "translate-y-[7px]");
+      bar2?.classList.remove("opacity-0");
+      bar3?.classList.remove("-rotate-45", "-translate-y-[7px]");
+      document.body.classList.remove("overflow-hidden");
     });
   });
 
   // Mobile solutions accordion toggle
   let accordionOpen = false;
-  mobileSolucionesToggle?.addEventListener('click', () => {
+  mobileSolucionesToggle?.addEventListener("click", () => {
     accordionOpen = !accordionOpen;
     if (accordionOpen) {
       mobileSolutionsContent!.style.maxHeight = `${mobileSolutionsContent?.scrollHeight}px`;
-      accordionArrow?.classList.add('rotate-180');
+      accordionArrow?.classList.add("rotate-180");
     } else {
-      mobileSolutionsContent!.style.maxHeight = '0px';
-      accordionArrow?.classList.remove('rotate-180');
+      mobileSolutionsContent!.style.maxHeight = "0px";
+      accordionArrow?.classList.remove("rotate-180");
     }
   });
 
-  const tabTriggerLinks = document.querySelectorAll('.tab-trigger-link');
-  tabTriggerLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      const targetTab = link.getAttribute('data-target-tab');
+  const tabTriggerLinks = document.querySelectorAll(".tab-trigger-link");
+  tabTriggerLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const targetTab = link.getAttribute("data-target-tab");
       if (targetTab) {
-        const tabBtn = document.querySelector(`.tab-btn[data-target="${targetTab}"]`) as HTMLElement;
+        const tabBtn = document.querySelector(
+          `.tab-btn[data-target="${targetTab}"]`,
+        ) as HTMLElement;
         if (tabBtn) tabBtn.click();
       }
     });
