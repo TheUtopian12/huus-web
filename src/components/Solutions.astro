@@ -1,0 +1,657 @@
+---
+// src/components/Solutions.astro
+
+const conectividad = [
+  {
+    id: "dedicado",
+    num: "01",
+    title: "Internet Dedicado",
+    desc: "Ancho de banda 1:1 simétrico garantizado. Sin contención, sin throttling. La solución preferida por bancos, hospitales y operaciones críticas que no toleran variabilidad.",
+    badge: "Más Vendido",
+    featured: true,
+    icon: "M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244",
+    features: ["SLA 99.999% garantizado en contrato", "Latencia ultrabaja <4ms punto a punto", "Soporte NOC 24/7 dedicado"],
+    specs: {}
+  },
+  {
+    id: "alta-disponibilidad",
+    num: "02",
+    title: "Alta Disponibilidad",
+    desc: "Conmutación automática en menos de 30 segundos con doble enlace carrier. Ideal para empresas que requieren continuidad operativa ante cualquier falla de red.",
+    badge: "Empresarial+",
+    featured: false,
+    icon: "M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3",
+    features: ["Failover automático <30 segundos", "Dual-carrier con rutas diversas", "Monitoreo BFD proactivo"],
+    specs: {}
+  },
+  {
+    id: "pyme",
+    num: "03",
+    title: "Internet Pyme",
+    desc: "Conectividad empresarial premium para medianas empresas. Calidad de operador con precios accesibles y soporte técnico local especializado.",
+    badge: "Negocios",
+    featured: false,
+    icon: "M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z",
+    features: ["Desde 10 Mbps hasta 1 Gbps", "Instalación en 5-10 días hábiles", "SLA empresarial incluido"],
+    specs: {}
+  },
+  {
+    id: "vpn",
+    num: "04",
+    title: "Redes Privadas Virtuales",
+    desc: "Conecta todas tus sedes en una red privada segura sobre nuestra infraestructura MPLS de alta velocidad. Control total con visibilidad centralizada.",
+    badge: "Multi-Sede",
+    featured: false,
+    icon: "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z",
+    features: ["MPLS + SD-WAN integrado", "QoS por aplicación y sede", "Cifrado AES-256 en tránsito"],
+    specs: {}
+  },
+  {
+    id: "eventos",
+    num: "05",
+    title: "Internet para Eventos",
+    desc: "Conectividad temporal de alto rendimiento para congresos, exposiciones y transmisiones en vivo. Desplegamos en cualquier venue en menos de 48 horas.",
+    badge: "Temporal",
+    featured: false,
+    icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z",
+    features: ["Despliegue en 24-48 horas", "Hasta 10 Gbps por evento", "Soporte técnico en sitio"],
+    specs: {}
+  },
+  {
+    id: "satelital",
+    num: "06",
+    title: "Internet Satelital",
+    desc: "Cobertura nacional incluso en zonas remotas sin infraestructura de fibra. Solución de respaldo o principal para operaciones fuera de cobertura terrestre.",
+    badge: "Cobertura Total",
+    featured: false,
+    icon: "M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418",
+    features: ["Cobertura 100% del territorio", "Latencia optimizada LEO", "Failover automático a fibra"],
+    specs: {}
+  }
+];
+
+const serviciosAdministrados = [
+  {
+    id: "comunicaciones",
+    num: "07",
+    title: "Comunicaciones Unificadas",
+    desc: "Voz, video y mensajería corporativa en una sola plataforma administrada. Reduce costos y aumenta la colaboración con calidad empresarial garantizada.",
+    badge: "Colaboración",
+    featured: false,
+    icon: "M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z",
+    features: ["Telefonía IP empresarial", "Videoconferencia HD", "Integración CRM/ERP"],
+    specs: {}
+  },
+  {
+    id: "wifi",
+    num: "08",
+    title: "Red WiFi Administrada",
+    desc: "Infraestructura WiFi de alta densidad gestionada desde la nube. Cobertura total en campus, oficinas y centros de distribución con visibilidad en tiempo real.",
+    badge: "Smart Network",
+    featured: false,
+    icon: "M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z",
+    features: ["WiFi 6/6E certificado", "Gestión centralizada cloud", "Segmentación por VLAN/SSID"],
+    specs: {}
+  },
+  {
+    id: "ciberseguridad",
+    num: "09",
+    title: "Ciberseguridad Perimetral",
+    desc: "Protección de siguiente generación con firewalls UTM, detección de intrusiones y SOC 24/7. Blindaje completo para tu infraestructura crítica.",
+    badge: "Seguridad Máxima",
+    featured: false,
+    icon: "M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z",
+    features: ["Firewall UTM Next-Gen", "IDS/IPS en tiempo real", "SOC con analistas 24/7"],
+    specs: {}
+  },
+  {
+    id: "sd-wan",
+    num: "10",
+    title: "SD-WAN Inteligente",
+    desc: "Orquestación inteligente del tráfico entre múltiples carriers y sitios. Optimiza automáticamente rutas, reduce costos y mejora el rendimiento de aplicaciones críticas.",
+    badge: "Orquestado",
+    featured: false,
+    icon: "M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5",
+    features: ["Enrutamiento inteligente por QoS", "Multi-carrier activo-activo", "Zero-touch provisioning"],
+    specs: {}
+  },
+  {
+    id: "tic",
+    num: "11",
+    title: "Servicios TIC",
+    desc: "Outsourcing completo de tecnología de información y comunicaciones. Nos encargamos de tu infraestructura para que tú te enfoques en tu negocio.",
+    badge: "Outsourcing",
+    featured: false,
+    icon: "M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 15V5.25m19.5 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 7.91a2.25 2.25 0 01-1.07-1.916V5.25",
+    features: ["Mesa de servicios L1/L2/L3", "Gestión de proveedores", "Reportes ejecutivos mensuales"],
+    specs: {}
+  },
+  {
+    id: "videovigilancia",
+    num: "12",
+    title: "Videovigilancia Cloud",
+    desc: "Sistema de videovigilancia inteligente con almacenamiento en la nube, análisis de video con IA y acceso remoto seguro desde cualquier dispositivo.",
+    badge: "Monitoreo Cloud",
+    featured: false,
+    icon: "M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z",
+    features: ["4K con IA integrada", "Almacenamiento cloud ilimitado", "Alertas en tiempo real"],
+    specs: {}
+  }
+];
+
+const dataCenters = [
+  {
+    id: "datacenter",
+    num: "13",
+    title: "Data Center y Co-ubicaciones",
+    desc: "Infraestructura Tier III redundante en Monterrey. Racks premium con conectividad directa hasta 400 Gbps, climatización N+1 y seguridad física de máximo nivel.",
+    badge: "Tier III Premium",
+    featured: false,
+    icon: "M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z",
+    features: ["Tier III 99.982% disponibilidad", "Conectividad hasta 400 Gbps", "Jaulas privadas disponibles"],
+    specs: {}
+  }
+];
+
+const todasLasSoluciones = [...conectividad, ...serviciosAdministrados, ...dataCenters];
+---
+
+<section id="soluciones" class="relative py-24 lg:py-36 bg-[#f7f7f8] overflow-hidden border-t border-black/[0.04]">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+    <!-- Header Block (Image 1 style) -->
+    <div class="max-w-3xl mb-16 lg:mb-24 reveal reveal-fade-up">
+      <span class="font-mono text-[9px] uppercase tracking-[0.3em] text-neutral-400 font-bold mb-3 block">Catálogo de Soluciones</span>
+      <h2 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-huus-dark">
+        La infraestructura que<br /><span class="text-huus-violet">tu empresa necesita</span>
+      </h2>
+      <p class="text-sm text-neutral-500 mt-5 max-w-xl font-light leading-relaxed">
+        Ingeniería avanzada aplicada a la conectividad corporativa de alta densidad, orquestada para garantizar un rendimiento óptimo de tu negocio.
+      </p>
+    </div>
+
+    <!-- Active indicators (Watch navigation styled text link) -->
+    <div class="flex flex-wrap gap-8 border-b border-black/5 pb-0 mb-16 justify-start reveal reveal-fade-up delay-100 text-xs font-bold uppercase tracking-[0.2em]">
+      <button 
+        class="tab-btn pb-5 transition-all duration-300 text-neutral-400 hover:text-[#bc00dd] relative active-tab cursor-pointer [&.active-tab]:text-[#bc00dd] [&.active-tab]:border-b-2 [&.active-tab]:border-[#bc00dd]"
+        data-target="conectividad"
+      >
+        Conectividad
+      </button>
+      <button 
+        class="tab-btn pb-5 transition-all duration-300 text-neutral-400 hover:text-[#bc00dd] relative cursor-pointer [&.active-tab]:text-[#bc00dd] [&.active-tab]:border-b-2 [&.active-tab]:border-[#bc00dd]"
+        data-target="servicios-administrados"
+      >
+        Servicios Administrados
+      </button>
+      <button 
+        class="tab-btn pb-5 transition-all duration-300 text-neutral-400 hover:text-[#bc00dd] relative cursor-pointer [&.active-tab]:text-[#bc00dd] [&.active-tab]:border-b-2 [&.active-tab]:border-[#bc00dd]"
+        data-target="data-center"
+      >
+        Data Centers
+      </button>
+    </div>
+
+    <!-- Showcase Grids (Soft light grey product cards with fuchsia buttons) -->
+    <div class="relative">
+      
+      <!-- GRID 1: Conectividad -->
+      <div id="grid-conectividad" class="tab-pane grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-all duration-500 ease-out">
+        {conectividad.map((sol, idx) => (
+          <div 
+            class={`reveal reveal-fade-up relative group rounded-[20px] p-[1.5px] overflow-hidden transition-all duration-500 hover:-translate-y-1.5 ${sol.featured ? 'md:col-span-2 lg:col-span-1 shadow-[0_0_40px_rgba(109,40,217,0.15)] hover:shadow-[0_8px_60px_rgba(109,40,217,0.30)]' : 'shadow-sm hover:shadow-xl hover:shadow-huus-violet/10'} ${idx === 0 ? '' : idx === 1 ? 'delay-100' : idx === 2 ? 'delay-200' : idx === 3 ? 'delay-300' : idx === 4 ? 'delay-400' : 'delay-500'}`}
+            data-solution-id={sol.id}
+          >
+            <!-- Animated border -->
+            <div class={`absolute inset-[-150%] animate-[borderSpin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#171717_0%,#6D28D9_50%,#171717_100%)] ${sol.featured ? 'opacity-60 group-hover:opacity-100' : 'opacity-10 group-hover:opacity-70'} transition-opacity duration-700`}></div>
+            
+            <!-- Inner Card -->
+            <a href={`/servicios/${sol.id}`} class="relative block h-full w-full bg-[#111111] rounded-[18.5px] p-7 flex flex-col z-10 min-h-[400px] cursor-pointer group/link">
+              <div class="flex-1">
+                <!-- Card top: num + badge + icon -->
+                <div class="flex justify-between items-start mb-5">
+                  <div class="flex items-center gap-3">
+                    <!-- Service Icon -->
+                    <div class={`p-2.5 rounded-xl border transition-all duration-300 ${sol.featured ? 'bg-huus-violet/20 border-huus-violet/30 text-huus-violet group-hover/link:bg-huus-violet group-hover/link:text-white' : 'bg-white/5 border-white/10 text-white/40 group-hover/link:text-huus-violet group-hover/link:border-huus-violet/30'}`}>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d={sol.icon} />
+                      </svg>
+                    </div>
+                    <span class="font-mono text-[10px] text-white/30 font-bold tracking-widest">{sol.num}</span>
+                  </div>
+                  <span class={`text-[9px] font-mono tracking-[0.15em] font-bold px-2.5 py-1 rounded-full border ${sol.featured ? 'bg-huus-violet/15 border-huus-violet/30 text-huus-violet' : 'bg-white/5 border-white/10 text-neutral-500'}`}>{sol.badge}</span>
+                </div>
+
+                <h3 class="font-display text-lg font-bold text-white mb-3 group-hover/link:text-huus-violet transition-colors duration-300 tracking-tight leading-snug">{sol.title}</h3>
+                <p class="text-sm text-neutral-500 font-light leading-relaxed mb-5">{sol.desc}</p>
+              </div>
+
+              <div class="mt-auto">
+                <ul class="space-y-2.5 mb-6 border-t border-white/[0.06] pt-5">
+                  {sol.features.map((feat) => (
+                    <li class="flex items-center gap-2.5 text-[13px] text-neutral-400 font-light">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5 flex-shrink-0 text-huus-violet">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+
+                <div class={`w-full py-3.5 text-center text-[10px] font-bold uppercase tracking-[0.2em] rounded-xl transition-all duration-300 border ${sol.featured ? 'bg-huus-violet text-white border-huus-violet group-hover/link:bg-huus-magenta group-hover/link:border-huus-magenta group-hover/link:shadow-[0_4px_20px_rgba(217,70,239,0.3)]' : 'bg-white/5 text-white/40 border-white/10 group-hover/link:bg-huus-violet/15 group-hover/link:text-white group-hover/link:border-huus-violet/40'}`}>
+                  Ver detalles →
+                </div>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <!-- GRID 2: Servicios Administrados -->
+      <div id="grid-servicios-administrados" class="tab-pane hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-all duration-500 ease-out opacity-0 translate-y-4">
+        {serviciosAdministrados.map((sol, idx) => (
+          <div 
+            class={`reveal reveal-fade-up relative group rounded-[20px] p-[1.5px] overflow-hidden shadow-sm hover:shadow-xl hover:shadow-huus-violet/10 transition-all duration-500 hover:-translate-y-1.5 ${idx === 0 ? '' : idx === 1 ? 'delay-100' : idx === 2 ? 'delay-200' : idx === 3 ? 'delay-300' : idx === 4 ? 'delay-400' : 'delay-500'}`}
+            data-solution-id={sol.id}
+          >
+            <div class="absolute inset-[-150%] animate-[borderSpin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#111111_0%,#6D28D9_50%,#111111_100%)] opacity-10 group-hover:opacity-60 transition-opacity duration-700"></div>
+            
+            <a href={`/servicios/${sol.id}`} class="relative block h-full w-full bg-[#111111] rounded-[18.5px] p-7 flex flex-col z-10 min-h-[400px] cursor-pointer group/link">
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-5">
+                  <div class="flex items-center gap-3">
+                    <div class="p-2.5 rounded-xl border bg-white/5 border-white/10 text-white/40 group-hover/link:text-huus-violet group-hover/link:border-huus-violet/30 transition-all duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d={sol.icon} />
+                      </svg>
+                    </div>
+                    <span class="font-mono text-[10px] text-white/30 font-bold tracking-widest">{sol.num}</span>
+                  </div>
+                  <span class="text-[9px] font-mono tracking-[0.15em] font-bold px-2.5 py-1 rounded-full border bg-white/5 border-white/10 text-neutral-500">{sol.badge}</span>
+                </div>
+
+                <h3 class="font-display text-lg font-bold text-white mb-3 group-hover/link:text-huus-violet transition-colors duration-300 tracking-tight leading-snug">{sol.title}</h3>
+                <p class="text-sm text-neutral-500 font-light leading-relaxed mb-5">{sol.desc}</p>
+              </div>
+
+              <div class="mt-auto">
+                <ul class="space-y-2.5 mb-6 border-t border-white/[0.06] pt-5">
+                  {sol.features.map((feat) => (
+                    <li class="flex items-center gap-2.5 text-[13px] text-neutral-400 font-light">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5 flex-shrink-0 text-huus-violet">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+
+                <div class="w-full py-3.5 text-center text-[10px] font-bold uppercase tracking-[0.2em] rounded-xl transition-all duration-300 border bg-white/5 text-white/40 border-white/10 group-hover/link:bg-huus-violet/15 group-hover/link:text-white group-hover/link:border-huus-violet/40">
+                  Ver detalles →
+                </div>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <!-- GRID 3: Data Centers -->
+      <div id="grid-data-center" class="tab-pane hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-all duration-500 ease-out opacity-0 translate-y-4">
+        {dataCenters.map((sol, idx) => (
+          <div 
+            class="reveal reveal-fade-up relative group rounded-[20px] p-[1.5px] overflow-hidden shadow-[0_0_40px_rgba(109,40,217,0.15)] hover:shadow-[0_8px_60px_rgba(109,40,217,0.30)] transition-all duration-500 hover:-translate-y-1.5 lg:col-span-3 lg:max-w-2xl lg:mx-auto lg:w-full"
+            data-solution-id={sol.id}
+          >
+            <div class="absolute inset-[-150%] animate-[borderSpin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#111111_0%,#6D28D9_50%,#111111_100%)] opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+            
+            <a href={`/servicios/${sol.id}`} class="relative block h-full w-full bg-[#111111] rounded-[18.5px] p-8 flex flex-col lg:flex-row gap-8 z-10 cursor-pointer group/link">
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-5">
+                  <div class="flex items-center gap-3">
+                    <div class="p-3 rounded-xl border bg-huus-violet/20 border-huus-violet/30 text-huus-violet group-hover/link:bg-huus-violet group-hover/link:text-white transition-all duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d={sol.icon} />
+                      </svg>
+                    </div>
+                    <span class="font-mono text-[10px] text-white/30 font-bold tracking-widest">{sol.num}</span>
+                  </div>
+                  <span class="text-[9px] font-mono tracking-[0.15em] font-bold px-2.5 py-1 rounded-full border bg-huus-violet/15 border-huus-violet/30 text-huus-violet">{sol.badge}</span>
+                </div>
+                <h3 class="font-display text-xl font-bold text-white mb-3 group-hover/link:text-huus-violet transition-colors duration-300 tracking-tight">{sol.title}</h3>
+                <p class="text-sm text-neutral-500 font-light leading-relaxed mb-5">{sol.desc}</p>
+                <ul class="space-y-2.5 border-t border-white/[0.06] pt-5">
+                  {sol.features.map((feat) => (
+                    <li class="flex items-center gap-2.5 text-[13px] text-neutral-400 font-light">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5 flex-shrink-0 text-huus-violet">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="flex flex-col justify-center lg:min-w-[200px]">
+                <div class="w-full py-3.5 text-center text-[10px] font-bold uppercase tracking-[0.2em] rounded-xl transition-all duration-300 border bg-huus-violet text-white border-huus-violet group-hover/link:bg-huus-magenta group-hover/link:border-huus-magenta group-hover/link:shadow-[0_4px_20px_rgba(217,70,239,0.3)]">
+                  Ver instalaciones →
+                </div>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EXCLUSIVE SIDEDRAW PANEL (Light theme matching Image 1) -->
+  <div 
+    id="solution-drawer" 
+    class="fixed inset-y-0 right-0 w-full sm:w-[500px] bg-white border-l border-black/10 backdrop-blur-3xl z-50 shadow-2xl p-8 sm:p-10 flex flex-col justify-between translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] text-huus-dark"
+  >
+    <!-- Drawer Head -->
+    <div>
+      <div class="flex items-center justify-between mb-8 border-b border-black/5 pb-5">
+        <div class="flex items-center gap-4">
+          <span class="font-mono text-xs text-huus-thistle font-black tracking-widest" id="drawer-num">00</span>
+          <div class="h-6 w-[1px] bg-black/10"></div>
+          <div>
+            <span class="text-[8px] font-mono tracking-[0.25em] text-neutral-400 uppercase font-bold" id="drawer-badge">CATEGORÍA</span>
+            <h4 class="font-display text-base sm:text-lg font-black text-huus-dark uppercase tracking-tight leading-none mt-1" id="drawer-title">SERVICIO</h4>
+          </div>
+        </div>
+        
+        <!-- Close Button -->
+        <button 
+          id="close-drawer" 
+          class="flex items-center justify-center w-9 h-9 rounded-full border border-black/5 hover:border-black/20 hover:scale-105 transition-all text-huus-dark cursor-pointer"
+          aria-label="Cerrar Ficha"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Drawer Specs Content -->
+      <div class="space-y-6 overflow-y-auto max-h-[60vh] pr-2 scrollbar-mini">
+        <!-- General desc -->
+        <p class="text-xs sm:text-sm text-neutral-500 font-light leading-relaxed mb-6 animate-pulse" id="drawer-desc">
+          Cargando descripción detallada...
+        </p>
+
+        <!-- Technical specifications matrix -->
+        <div class="space-y-4">
+          <span class="text-[8px] font-mono tracking-[0.3em] text-neutral-400 block border-b border-black/5 pb-2 font-bold">ESPECIFICACIONES DE RENDIMIENTO</span>
+          
+          <!-- Row: Latency -->
+          <div class="flex justify-between items-center py-3 border-b border-black/5">
+            <span class="text-[9px] text-neutral-400 uppercase tracking-wider font-bold">LATENCIA CORE (PUNTO A PUNTO)</span>
+            <span class="text-xs text-huus-dark font-black font-mono" id="spec-latency">-</span>
+          </div>
+
+          <!-- Row: Redundancy -->
+          <div class="flex flex-col gap-1 py-3 border-b border-black/5">
+            <span class="text-[9px] text-neutral-400 uppercase tracking-wider font-bold">REDUNDANCIA FÍSICA</span>
+            <span class="text-xs text-neutral-600 font-light" id="spec-redundancy">-</span>
+          </div>
+
+          <!-- Row: Hardware -->
+          <div class="flex flex-col gap-1 py-3 border-b border-black/5">
+            <span class="text-[9px] text-neutral-400 uppercase tracking-wider font-bold">TECNOLOGÍA DE MEDIO</span>
+            <span class="text-xs text-neutral-600 font-light" id="spec-technology">-</span>
+          </div>
+
+          <!-- Row: Hardware Equipment -->
+          <div class="flex flex-col gap-1 py-3 border-b border-black/5">
+            <span class="text-[9px] text-neutral-400 uppercase tracking-wider font-bold">EQUIPAMIENTO EN SITIO (CPE)</span>
+            <span class="text-xs text-neutral-600 font-light" id="spec-hardware">-</span>
+          </div>
+
+          <!-- Row: Delivery -->
+          <div class="flex justify-between items-center py-3 border-b border-black/5">
+            <span class="text-[9px] text-neutral-400 uppercase tracking-wider font-bold">TIEMPO DE DESPLIEGUE (ESTIMADO)</span>
+            <span class="text-xs text-huus-dark font-black font-mono" id="spec-setup">-</span>
+          </div>
+
+          <!-- Row: Ideal Target -->
+          <div class="flex flex-col gap-1 py-3">
+            <span class="text-[9px] text-neutral-400 uppercase tracking-wider font-bold">IDEAL PARA</span>
+            <span class="text-xs text-neutral-600 font-light" id="spec-ideal">-</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Drawer Footer Actions -->
+    <div class="border-t border-black/5 pt-6 mt-6 flex flex-col gap-5">
+      <div class="flex items-center gap-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        <span class="text-[8px] font-mono tracking-[0.25em] text-emerald-500 font-extrabold">CONECTIVIDAD GARANTIZADA BAJO CONTRATO SLA</span>
+      </div>
+      
+      <!-- Action Buttons -->
+      <button 
+        id="drawer-cta-btn" 
+        class="w-full relative group overflow-hidden px-8 py-4 rounded-xl bg-huus-thistle text-white font-display text-[10px] font-bold uppercase tracking-[0.25em] transition-all duration-300 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-huus-thistle/10"
+      >
+        SOLICITAR FACTIBILIDAD
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Overlay transparent mask -->
+  <div 
+    id="drawer-overlay" 
+    class="fixed inset-0 bg-black/40 backdrop-blur-sm z-45 opacity-0 pointer-events-none transition-opacity duration-500"
+  ></div>
+
+</section>
+
+<style>
+  /* Premium Active state for tab selector buttons */
+  .active-tab {
+    color: #bc00dd !important;
+  }
+  .active-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #bc00dd;
+  }
+
+  /* Custom mini scrollbar for deep specs drawer */
+  .scrollbar-mini::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-mini::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-mini::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+  }
+  .scrollbar-mini::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.15);
+  }
+</style>
+
+<script is:inline define:vars={{ todasLasSoluciones }}>
+  // Pass Astro solutions to inline javascript
+  const solutionsDb = {};
+  todasLasSoluciones.forEach(sol => {
+    solutionsDb[sol.id] = sol;
+  });
+
+  // Solutions tab switcher logic
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-target');
+
+      // Reset all buttons
+      tabButtons.forEach(b => b.classList.remove('active-tab'));
+      // Active current button
+      btn.classList.add('active-tab');
+
+      // Hide all panes with transition
+      tabPanes.forEach(pane => {
+        pane.classList.add('opacity-0', 'translate-y-4');
+        setTimeout(() => {
+          pane.classList.add('hidden');
+        }, 150); // wait for fade out
+      });
+
+      // Show and animate target pane
+      setTimeout(() => {
+        const targetPane = document.getElementById(`grid-${target}`);
+        if (targetPane) {
+          targetPane.classList.remove('hidden');
+          // small tick to let DOM update before removing classes
+          setTimeout(() => {
+            targetPane.classList.remove('opacity-0', 'translate-y-4');
+          }, 50);
+        }
+      }, 160);
+    });
+  });
+
+  // Premium Drawer open/close logic
+  const solutionCards = document.querySelectorAll('.solution-card');
+  const solutionDrawer = document.getElementById('solution-drawer');
+  const drawerOverlay = document.getElementById('drawer-overlay');
+  const closeDrawerBtn = document.getElementById('close-drawer');
+  const drawerCtaBtn = document.getElementById('drawer-cta-btn');
+
+  // DOM Elem connections inside drawer
+  const drawerNum = document.getElementById('drawer-num');
+  const drawerBadge = document.getElementById('drawer-badge');
+  const drawerTitle = document.getElementById('drawer-title');
+  const drawerDesc = document.getElementById('drawer-desc');
+  const specLatency = document.getElementById('spec-latency');
+  const specRedundancy = document.getElementById('spec-redundancy');
+  const specTechnology = document.getElementById('spec-technology');
+  const specHardware = document.getElementById('spec-hardware');
+  const specSetup = document.getElementById('spec-setup');
+  const specIdeal = document.getElementById('spec-ideal');
+
+  let activeDrawerServiceTitle = '';
+
+  function openDrawer(solId) {
+    const data = solutionsDb[solId];
+    if (!data) return;
+
+    // Fill drawer content
+    activeDrawerServiceTitle = data.title;
+    if (drawerNum) drawerNum.innerText = data.num + " //";
+    if (drawerBadge) drawerBadge.innerText = data.badge;
+    if (drawerTitle) drawerTitle.innerText = data.title;
+    if (drawerDesc) {
+      drawerDesc.classList.remove('animate-pulse');
+      drawerDesc.innerText = data.desc;
+    }
+    
+    if (specLatency) specLatency.innerText = data.specs.latency;
+    if (specRedundancy) specRedundancy.innerText = data.specs.redundancy;
+    if (specTechnology) specTechnology.innerText = data.specs.technology;
+    if (specHardware) specHardware.innerText = data.specs.hardware;
+    if (specSetup) specSetup.innerText = data.specs.setup;
+    if (specIdeal) specIdeal.innerText = data.specs.ideal;
+
+    // Slide out drawer
+    if (solutionDrawer) solutionDrawer.classList.remove('translate-x-full');
+    if (drawerOverlay) {
+      drawerOverlay.classList.remove('opacity-0', 'pointer-events-none');
+      drawerOverlay.classList.add('opacity-100');
+    }
+    document.body.classList.add('overflow-hidden');
+  }
+
+  function closeDrawer() {
+    if (solutionDrawer) solutionDrawer.classList.add('translate-x-full');
+    if (drawerOverlay) {
+      drawerOverlay.classList.remove('opacity-100');
+      drawerOverlay.classList.add('opacity-0', 'pointer-events-none');
+    }
+    document.body.classList.remove('overflow-hidden');
+  }
+
+  // Cards listeners
+  solutionCards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      // If clicking directly on COTIZAR button inside card, don't trigger drawer, open contact section
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        closeDrawer();
+        
+        // Auto select service in the contact form dropdown
+        const titleEl = card.querySelector('h3');
+        const activeTitle = titleEl ? titleEl.innerText : '';
+        const contactSelect = document.getElementById('servicio') as HTMLSelectElement;
+        if (contactSelect && activeTitle) {
+          let matchedVal = '';
+          if (activeTitle.includes('Dedicado')) matchedVal = 'Internet Dedicado';
+          else if (activeTitle.includes('Disponibilidad')) matchedVal = 'Alta Disponibilidad';
+          else if (activeTitle.includes('Ciberseguridad') || activeTitle.includes('SD-WAN')) matchedVal = 'SD-WAN';
+          else if (activeTitle.includes('Data Center')) matchedVal = 'Data Center';
+          else matchedVal = 'Otro';
+          contactSelect.value = matchedVal;
+        }
+
+        const contactSection = document.getElementById('contacto');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        return;
+      }
+      
+      const solId = card.getAttribute('data-solution-id');
+      if (solId) openDrawer(solId);
+    });
+  });
+
+  // Controls listeners
+  closeDrawerBtn?.addEventListener('click', closeDrawer);
+  drawerOverlay?.addEventListener('click', closeDrawer);
+
+  // Drawer CTA listener: close drawer and smoothly scroll to form, auto selecting the requested service!
+  drawerCtaBtn?.addEventListener('click', () => {
+    closeDrawer();
+    
+    // Auto select service in the contact form dropdown
+    const contactSelect = document.getElementById('servicio') as HTMLSelectElement;
+    if (contactSelect) {
+      let matchedVal = '';
+      
+      // Match active drawer service to dropdown options
+      if (activeDrawerServiceTitle.includes('Dedicado')) {
+        matchedVal = 'Internet Dedicado';
+      } else if (activeDrawerServiceTitle.includes('Disponibilidad')) {
+        matchedVal = 'Alta Disponibilidad';
+      } else if (activeDrawerServiceTitle.includes('Ciberseguridad') || activeDrawerServiceTitle.includes('SD-WAN')) {
+        matchedVal = 'SD-WAN';
+      } else if (activeDrawerServiceTitle.includes('Data Center')) {
+        matchedVal = 'Data Center';
+      } else {
+        matchedVal = 'Otro';
+      }
+
+      contactSelect.value = matchedVal;
+    }
+
+    // Scroll to contact section
+    const contactSection = document.getElementById('contacto');
+    if (contactSection) {
+      setTimeout(() => {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    }
+  });
+</script>

@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+export function getStaticPaths() {
+  const ids = [
+    "dedicado", "alta-disponibilidad", "pyme", "vpn", "eventos", "satelital",
+    "comunicaciones", "wifi", "ciberseguridad", "sd-wan", "tic", "videovigilancia",
+    "datacenter"
+  ];
+  
+  return ids.map(id => ({
+    params: { id },
+    props: { id }
+  }));
+}
+
+const { id } = Astro.props;
+
+// Simple mapping for titles
+const titles: Record<string, string> = {
+  "dedicado": "Internet Dedicado",
+  "alta-disponibilidad": "Alta Disponibilidad",
+  "pyme": "Internet Pyme",
+  "vpn": "Redes Privadas Virtuales",
+  "eventos": "Internet Para Eventos",
+  "satelital": "Internet Satelital",
+  "comunicaciones": "Comunicaciones Unificadas",
+  "wifi": "Red Wifi Administrada",
+  "ciberseguridad": "Ciberseguridad",
+  "sd-wan": "SD-WAN",
+  "tic": "Servicios TIC",
+  "videovigilancia": "VideoVigilancia",
+  "datacenter": "Data Center y Co-ubicaciones"
+};
+
+const title = titles[id] || "Servicio";
+---
+
+<Layout title={`${title} | Huus+`}>
+  <Navbar />
+  
+  <main class="min-h-screen bg-huus-bg pt-40 pb-20">
+    <div class="max-w-[1000px] mx-auto px-6 lg:px-12">
+      <div class="mb-12">
+        <a href="/#soluciones" class="inline-flex items-center gap-2 text-sm font-bold text-huus-violet hover:text-huus-magenta transition-colors uppercase tracking-widest mb-8">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          Volver a Soluciones
+        </a>
+        
+        <h1 class="text-5xl md:text-7xl font-black text-huus-dark mb-6 tracking-tight">{title}</h1>
+        <p class="text-xl text-neutral-500 font-light leading-relaxed max-w-2xl">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        </p>
+      </div>
+
+      <div class="prose prose-lg prose-neutral max-w-none">
+        <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-black/5 mb-12">
+          <h2 class="text-2xl font-black text-huus-dark mb-6">Detalles del Servicio</h2>
+          <p class="text-neutral-500 leading-relaxed mb-6 text-sm md:text-base">
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+          </p>
+          
+          <div class="grid md:grid-cols-2 gap-8 mt-12">
+            <div class="bg-huus-bg rounded-2xl p-8">
+              <h3 class="text-xl font-bold text-huus-dark mb-4">Características Principales</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-huus-violet shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                  <span class="text-neutral-600 text-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-huus-violet shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                  <span class="text-neutral-600 text-sm">Sed diam nonummy nibh euismod tincidunt ut laoreet.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-huus-violet shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                  <span class="text-neutral-600 text-sm">Dolore magna aliquam erat volutpat.</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="bg-huus-bg rounded-2xl p-8">
+              <h3 class="text-xl font-bold text-huus-dark mb-4">Beneficios</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-[#bc00dd] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                  <span class="text-neutral-600 text-sm">Ut wisi enim ad minim veniam.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-[#bc00dd] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                  <span class="text-neutral-600 text-sm">Quis nostrud exerci tation ullamcorper suscipit.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-[#bc00dd] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                  <span class="text-neutral-600 text-sm">Lobortis nisl ut aliquip ex ea commodo consequat.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-16 mb-8">
+          <a href="/#contacto" class="inline-block px-10 py-4 bg-huus-dark text-white font-bold tracking-widest uppercase text-sm rounded-full hover:bg-black hover:scale-105 transition-all shadow-xl shadow-black/10">
+            Solicitar Información
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>

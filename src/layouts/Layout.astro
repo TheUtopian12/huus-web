@@ -1,0 +1,139 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "HUUS - Conectividad Ultra Premium y Servicios Administrados de Telecomunicaciones" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth bg-white selection:bg-huus-violet/20 selection:text-huus-dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Premium Fonts: Geist -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.3/dist/fonts/geist-sans/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.3/dist/fonts/geist-mono/style.css">
+
+    <style is:global>
+      :root {
+        /* CSS HEX Colors */
+        --pure-white: #ffffff;
+        --graphite: #171717;
+        --deep-black: #0A0A0A;
+        --violet-main: #6D28D9;
+        --magenta-accent: #D946EF;
+        --electric-blue: #0EA5E9;
+        
+        --gradient-premium: linear-gradient(135deg, var(--pure-white) 0%, #FAFAFA 100%);
+      }
+
+      /* Premium custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #E5E5E5;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #A3A3A3;
+      }
+
+      body {
+        font-family: 'Geist', 'Inter', sans-serif;
+        background-color: var(--pure-white);
+        color: var(--deep-black);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Smooth, ultra-premium text rendering */
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Geist', 'Inter', sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      
+      .font-mono {
+        font-family: 'Geist Mono', monospace;
+      }
+
+      /* Premium Scroll Reveal System */
+      .reveal {
+        opacity: 0;
+        transition-property: opacity, transform, filter;
+        transition-duration: 1.2s;
+        transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform, opacity, filter;
+      }
+
+      .reveal-fade-up { transform: translateY(40px); }
+      .reveal-fade-down { transform: translateY(-40px); }
+      .reveal-fade-left { transform: translateX(40px); }
+      .reveal-fade-right { transform: translateX(-40px); }
+      .reveal-scale-up { transform: scale(0.95); }
+      .reveal-blur { filter: blur(10px); }
+
+      /* When intersecting, trigger animation */
+      .reveal.is-revealed {
+        opacity: 1;
+        transform: translate(0) scale(1);
+        filter: blur(0);
+      }
+
+      /* Custom delay helpers */
+      .delay-100 { transition-delay: 100ms; }
+      .delay-200 { transition-delay: 200ms; }
+      .delay-300 { transition-delay: 300ms; }
+      .delay-400 { transition-delay: 400ms; }
+      .delay-500 { transition-delay: 500ms; }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col selection:bg-huus-violet/20 select-none">
+    
+    <slot />
+  </body>
+
+  <script>
+    // Scroll Reveal Intersection Observer
+    const initScrollReveal = () => {
+      const revealElements = document.querySelectorAll('.reveal');
+      
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.05
+      };
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      revealElements.forEach(element => {
+        revealObserver.observe(element);
+      });
+    };
+
+    initScrollReveal();
+    document.addEventListener('astro:page-load', initScrollReveal);
+  </script>
+</html>

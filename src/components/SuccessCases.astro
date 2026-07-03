@@ -1,0 +1,174 @@
+---
+// src/components/SuccessCases.astro
+
+const cases = [
+  {
+    client: "Grupo Industrial Alfa",
+    sector: "Manufactura",
+    sectorColor: "bg-blue-500/20 text-blue-300",
+    problem: "Conectividad intermitente entre 18 plantas en 4 estados afectando producción crítica.",
+    solution: "Red privada MPLS/SD-WAN con redundancia dual-carrier y monitoreo NOC 24/7.",
+    results: [
+      "Eliminación total de cortes no programados",
+      "Reducción del 67% en tiempo de recuperación",
+      "Consolidación de 18 sitios en una sola red gestionada"
+    ],
+    availability: "99.998%",
+    latency: "2.1 ms",
+    deployTime: "21 días",
+    gradient: "from-[#1a0533] to-[#0d0020]",
+  },
+  {
+    client: "Cadena Retail Nacional",
+    sector: "Retail",
+    sectorColor: "bg-emerald-500/20 text-emerald-300",
+    problem: "850 sucursales con acceso a internet residencial causando pérdidas en transacciones en horario pico.",
+    solution: "Internet Dedicado 1:1 simétrico con SLA empresarial y failover satelital automático.",
+    results: [
+      "99.99% de disponibilidad en horas pico",
+      "+340% mejora en velocidad de transacciones POS",
+      "Ahorro del 35% vs. solución anterior"
+    ],
+    availability: "99.99%",
+    latency: "3.8 ms",
+    deployTime: "45 días",
+    gradient: "from-[#001a14] to-[#030d09]",
+  },
+  {
+    client: "Institución Financiera Regional",
+    sector: "Finanzas",
+    sectorColor: "bg-amber-500/20 text-amber-300",
+    problem: "Regulación CNBV requería conmutación de respaldo en menos de 30 segundos ante fallas de enlace primario.",
+    solution: "Alta Disponibilidad con BFD + OSPF failover automático y SLA de 30 segundos garantizado contractualmente.",
+    results: [
+      "Failover automático en <8 segundos promedio",
+      "Cumplimiento total con regulación CNBV",
+      "0 incidentes de disponibilidad en 24 meses"
+    ],
+    availability: "99.999%",
+    latency: "1.4 ms",
+    deployTime: "14 días",
+    gradient: "from-[#1a1100] to-[#0d0900]",
+  }
+];
+---
+
+<section id="casos-exito" class="relative py-24 lg:py-36 bg-[#06000f] overflow-hidden border-t border-white/[0.04]">
+  <!-- Ambient lighting -->
+  <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-huus-violet/10 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-huus-magenta/8 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <!-- Subtle grid pattern -->
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(109,40,217,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(109,40,217,0.8) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+    <!-- Section Header -->
+    <div class="mb-16 lg:mb-20 reveal reveal-fade-up">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+        <div>
+          <span class="font-mono text-[9px] uppercase tracking-[0.3em] text-huus-violet/70 font-bold mb-3 block">Casos de Éxito</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+            Resultados que<br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-huus-violet via-huus-magenta to-huus-electric">hablan por sí solos</span>
+          </h2>
+        </div>
+        <a href="#contacto" class="group inline-flex items-center gap-2 text-sm font-semibold text-white/60 hover:text-white transition-colors duration-300 shrink-0">
+          Ver todos los casos
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Cases Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {cases.map((c, idx) => (
+        <div
+          class={`reveal reveal-fade-up group relative rounded-2xl border border-white/[0.07] bg-gradient-to-br ${c.gradient} p-8 flex flex-col hover:border-huus-violet/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(109,40,217,0.15)] cursor-default`}
+          style={`transition-delay: ${idx * 100}ms`}
+        >
+          <!-- Top accent line on hover -->
+          <div class="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-huus-violet/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+          <!-- Client header -->
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <span class={`inline-flex items-center px-2.5 py-1 rounded-full text-[9px] font-mono uppercase tracking-widest font-bold ${c.sectorColor} mb-3`}>
+                {c.sector}
+              </span>
+              <h3 class="text-lg font-bold text-white leading-snug">{c.client}</h3>
+            </div>
+            <!-- Status dot -->
+            <div class="flex items-center gap-1.5 mt-1">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span class="text-[9px] font-mono text-emerald-400 uppercase tracking-wider">Activo</span>
+            </div>
+          </div>
+
+          <!-- Problem -->
+          <div class="mb-5">
+            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-white/30 font-bold mb-2 block">Desafío</span>
+            <p class="text-sm text-white/60 leading-relaxed font-light">{c.problem}</p>
+          </div>
+
+          <!-- Solution -->
+          <div class="mb-6">
+            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-huus-violet/70 font-bold mb-2 block">Solución HUUS+</span>
+            <p class="text-sm text-white/70 leading-relaxed">{c.solution}</p>
+          </div>
+
+          <!-- Results -->
+          <div class="mb-8 flex-1">
+            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-white/30 font-bold mb-3 block">Resultados</span>
+            <ul class="space-y-2">
+              {c.results.map(result => (
+                <li class="flex items-start gap-2.5 text-sm text-white/70 font-light">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#6D28D9" class="w-3.5 h-3.5 flex-shrink-0 mt-0.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  {result}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- KPI footer -->
+          <div class="border-t border-white/[0.06] pt-6 grid grid-cols-3 gap-4">
+            <div class="flex flex-col items-center text-center">
+              <span class="font-mono text-base font-black text-huus-violet mb-1 group-hover:text-huus-magenta transition-colors duration-500">{c.availability}</span>
+              <span class="text-[9px] font-mono uppercase tracking-wider text-white/30">Disponibilidad</span>
+            </div>
+            <div class="flex flex-col items-center text-center border-x border-white/[0.06]">
+              <span class="font-mono text-base font-black text-huus-violet mb-1 group-hover:text-huus-magenta transition-colors duration-500">{c.latency}</span>
+              <span class="text-[9px] font-mono uppercase tracking-wider text-white/30">Latencia</span>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <span class="font-mono text-base font-black text-huus-violet mb-1 group-hover:text-huus-magenta transition-colors duration-500">{c.deployTime}</span>
+              <span class="text-[9px] font-mono uppercase tracking-wider text-white/30">Despliegue</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom testimonial -->
+    <div class="mt-16 flex flex-col items-center text-center reveal reveal-fade-up delay-300">
+      <blockquote class="text-lg sm:text-xl text-white/70 font-light italic max-w-2xl leading-relaxed mb-6">
+        "HUUS+ no es solo nuestro proveedor de conectividad, es un socio estratégico que entiende que cualquier segundo de downtime representa pérdidas millonarias."
+      </blockquote>
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-huus-violet to-huus-magenta flex items-center justify-center">
+          <span class="text-white text-xs font-bold">GM</span>
+        </div>
+        <div class="text-left">
+          <span class="text-sm font-semibold text-white/80 block">Gerente de TI</span>
+          <span class="text-xs text-white/40">Institución Financiera Regional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

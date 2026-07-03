@@ -1,0 +1,440 @@
+---
+// src/components/Contact.astro
+---
+
+<section id="contacto" class="relative py-24 lg:py-36 bg-white border-t border-black/5 overflow-hidden">
+  <!-- Dynamic backglow -->
+  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-huus-thistle/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+      
+      <!-- Left Column: Premium direct channels & Copy (Image 1 style) -->
+      <div class="lg:col-span-5 reveal reveal-fade-up">
+        <span class="text-[9px] uppercase tracking-[0.25em] text-neutral-500 font-bold mb-3 block font-mono">CANALES EXCLUSIVOS</span>
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[0.95] text-huus-dark mb-8">
+          Hablemos de <br/> tu <span class="text-huus-thistle relative inline-block">proyecto<span class="absolute left-0 bottom-2 w-full h-[6px] bg-huus-thistle/20 rounded-full"></span></span>
+        </h2>
+        
+        <p class="text-xs sm:text-sm text-neutral-500 font-light leading-relaxed mb-12 max-w-md">
+          ¿Tienes un proyecto crítico en mente o necesitas elevar la conectividad de tu empresa? Agenda una llamada de diagnóstico técnico directo con uno de nuestros ingenieros senior de soluciones.
+        </p>
+
+        <!-- Direct links cards (Prstine light slate boxes) -->
+        <div class="space-y-6 reveal reveal-fade-up delay-100">
+          <!-- Phone card -->
+          <div class="flex items-start gap-4 p-5 rounded-2xl bg-[#f8fafc] border border-black/5 hover:border-huus-thistle/20 transition-all group/channel">
+            <div class="p-3 bg-huus-thistle/5 rounded-xl border border-huus-thistle/10 text-huus-thistle group-hover/channel:bg-huus-thistle group-hover/channel:text-white transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 01-7.108-7.108c-.145-.44.02-1.071.385-1.356l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-[8px] font-mono tracking-widest text-neutral-400 font-bold mb-0.5">LÍNEA PREMIUM CORPORATIVA</p>
+              <a href="tel:8004887835" class="text-base sm:text-lg font-bold text-huus-dark hover:text-huus-thistle transition-colors tracking-tight">800 HUUS TELECOM</a>
+            </div>
+          </div>
+
+          <!-- Email card -->
+          <div class="flex items-start gap-4 p-5 rounded-2xl bg-[#f8fafc] border border-black/5 hover:border-huus-thistle/20 transition-all group/channel">
+            <div class="p-3 bg-huus-thistle/5 rounded-xl border border-huus-thistle/10 text-huus-thistle group-hover/channel:bg-huus-thistle group-hover/channel:text-white transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0l-7.5-4.615a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-[8px] font-mono tracking-widest text-neutral-400 font-bold mb-0.5">CORREO EXECUTIVO</p>
+              <a href="mailto:solutions@huus.com" class="text-base sm:text-lg font-bold text-huus-dark hover:text-huus-thistle transition-colors tracking-tight">solutions@huus.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex items-center gap-2 px-4 py-2 bg-white border border-black/5 rounded-xl max-w-max reveal reveal-fade-up delay-200 shadow-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          <span class="text-[9px] font-bold uppercase tracking-widest text-neutral-500 font-mono">SOPORTE NOC / SOC ACTIVO: 24/7/365</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Subscription-box styled form container (Image 1 style) -->
+      <div class="lg:col-span-7 bg-[#f8fafc] border border-black/5 p-6 sm:p-10 lg:p-12 rounded-2xl shadow-xl relative overflow-hidden min-h-[500px] flex flex-col justify-between reveal reveal-fade-left delay-100">
+        
+        <div id="contact-form-container" class="w-full h-full flex flex-col justify-between">
+          <!-- Step Header Indicators -->
+          <div class="w-full mb-10">
+            <div class="flex justify-between items-center text-[9px] font-mono uppercase tracking-[0.2em] font-bold text-neutral-400 mb-3">
+              <span id="step-title-display">1. IDENTIFICACIÓN</span>
+              <span id="step-count-display" class="text-huus-thistle">PASO 1 DE 3</span>
+            </div>
+            <!-- Progress indicator bar -->
+            <div class="w-full h-[3px] bg-black/5 rounded-full overflow-hidden">
+              <div id="step-progress-bar" class="h-full bg-huus-thistle w-1/3 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"></div>
+            </div>
+          </div>
+
+          <!-- Wizard Form Multistep fields -->
+          <form id="huus-contact-form" class="w-full flex-1 flex flex-col justify-between text-left">
+            
+            <!-- STEP 1: Personal Info -->
+            <div id="form-step-1" class="form-step-pane space-y-8 transition-all duration-500">
+              <!-- Full Name -->
+              <div class="flex flex-col relative group">
+                <input 
+                  type="text" 
+                  id="nombre" 
+                  name="nombre" 
+                  placeholder=" " 
+                  required
+                  class="peer border-b border-black/10 bg-transparent py-3 text-sm text-huus-dark focus:border-huus-thistle outline-none transition-all placeholder:opacity-0"
+                />
+                <label for="nombre" class="absolute left-0 top-3 text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 pointer-events-none transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[10px] peer-focus:text-huus-thistle font-bold">
+                  Nombre Completo
+                </label>
+                <span class="error-msg text-[9px] text-red-500 font-bold uppercase tracking-wider absolute right-0 bottom-1 opacity-0 transition-opacity duration-300">Este campo es requerido</span>
+              </div>
+
+              <!-- Email address -->
+              <div class="flex flex-col relative group">
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  placeholder=" " 
+                  required
+                  class="peer border-b border-black/10 bg-transparent py-3 text-sm text-huus-dark focus:border-huus-thistle outline-none transition-all placeholder:opacity-0"
+                />
+                <label for="email" class="absolute left-0 top-3 text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 pointer-events-none transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[10px] peer-focus:text-huus-thistle font-bold">
+                  Correo Corporativo
+                </label>
+                <span class="error-msg text-[9px] text-red-500 font-bold uppercase tracking-wider absolute right-0 bottom-1 opacity-0 transition-opacity duration-300">Ingresa un correo válido</span>
+              </div>
+            </div>
+
+            <!-- STEP 2: Company Info -->
+            <div id="form-step-2" class="form-step-pane hidden opacity-0 translate-x-12 space-y-8 transition-all duration-500">
+              <!-- Company Name -->
+              <div class="flex flex-col relative group">
+                <input 
+                  type="text" 
+                  id="empresa" 
+                  name="empresa" 
+                  placeholder=" " 
+                  required
+                  class="peer border-b border-black/10 bg-transparent py-3 text-sm text-huus-dark focus:border-huus-thistle outline-none transition-all placeholder:opacity-0"
+                />
+                <label for="empresa" class="absolute left-0 top-3 text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 pointer-events-none transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[10px] peer-focus:text-huus-thistle font-bold">
+                  Razón Social / Empresa
+                </label>
+                <span class="error-msg text-[9px] text-red-500 font-bold uppercase tracking-wider absolute right-0 bottom-1 opacity-0 transition-opacity duration-300">Este campo es requerido</span>
+              </div>
+
+              <!-- Phone number -->
+              <div class="flex flex-col relative group">
+                <input 
+                  type="tel" 
+                  id="telefono" 
+                  name="telefono" 
+                  placeholder=" " 
+                  required
+                  class="peer border-b border-black/10 bg-transparent py-3 text-sm text-huus-dark focus:border-huus-thistle outline-none transition-all placeholder:opacity-0"
+                />
+                <label for="telefono" class="absolute left-0 top-3 text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 pointer-events-none transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[10px] peer-focus:text-huus-thistle font-bold">
+                  Teléfono Directo
+                </label>
+                <span class="error-msg text-[9px] text-red-500 font-bold uppercase tracking-wider absolute right-0 bottom-1 opacity-0 transition-opacity duration-300">Ingresa un teléfono válido</span>
+              </div>
+            </div>
+
+            <!-- STEP 3: Project Info -->
+            <div id="form-step-3" class="form-step-pane hidden opacity-0 translate-x-12 space-y-8 transition-all duration-500">
+              <!-- Service Select -->
+              <div class="flex flex-col relative group">
+                <select 
+                  id="servicio" 
+                  name="servicio" 
+                  class="peer border-b border-black/10 bg-white py-3 text-sm text-huus-dark focus:border-huus-thistle outline-none transition-all cursor-pointer"
+                >
+                  <option value="" disabled selected class="text-neutral-400">Selecciona Solución Requerida</option>
+                  <option value="Internet Dedicado">Internet Dedicado (1:1 Simétrico)</option>
+                  <option value="Alta Disponibilidad">Alta Disponibilidad / Respaldo Carrier</option>
+                  <option value="SD-WAN">Ciberseguridad y SD-WAN Administrado</option>
+                  <option value="Data Center">Data Center & Co-ubicaciones</option>
+                  <option value="Otro">Otros Servicios de Telecomunicación</option>
+                </select>
+                <span class="error-msg text-[9px] text-red-500 font-bold uppercase tracking-wider absolute right-0 bottom-1 opacity-0 transition-opacity duration-300">Selecciona un servicio</span>
+              </div>
+
+              <!-- Message -->
+              <div class="flex flex-col relative group">
+                <textarea 
+                  id="mensaje" 
+                  name="mensaje" 
+                  rows="3" 
+                  placeholder=" " 
+                  class="peer border-b border-black/10 bg-transparent py-3 text-sm text-huus-dark focus:border-huus-thistle outline-none transition-all placeholder:opacity-0 resize-none"
+                ></textarea>
+                <label for="mensaje" class="absolute left-0 top-3 text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 pointer-events-none transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[10px] peer-focus:text-huus-thistle font-bold">
+                  Cuéntanos sobre tu proyecto de conectividad
+                </label>
+                <span class="error-msg text-[9px] text-red-500 font-bold uppercase tracking-wider absolute right-0 bottom-1 opacity-0 transition-opacity duration-300">Este campo es requerido</span>
+              </div>
+            </div>
+
+            <!-- Wizard Controls -->
+            <div class="pt-8 border-t border-black/5 flex items-center justify-between gap-4 mt-auto">
+              <!-- Back button -->
+              <button 
+                type="button" 
+                id="wizard-back-btn" 
+                class="hidden px-6 py-3 rounded-xl border border-black/10 text-huus-dark font-display text-xs font-bold uppercase tracking-[0.2em] transition-all hover:border-huus-thistle/40 hover:scale-102 active:scale-95 text-center flex items-center gap-1.5 cursor-pointer"
+              >
+                ← Atrás
+              </button>
+
+              <!-- Next/Submit button -->
+              <button 
+                type="button" 
+                id="wizard-next-btn" 
+                class="ml-auto relative group overflow-hidden px-8 py-4 rounded-xl bg-huus-thistle text-white font-display text-xs font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-huus-thistle/90 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-huus-thistle/10"
+              >
+                <span>Continuar</span>
+                <svg id="wizard-btn-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Luxury Success Message Overlay (Light Success Panel) -->
+        <div id="success-overlay" class="absolute inset-0 bg-[#f8fafc] flex flex-col justify-center items-center text-center p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] translate-y-full opacity-0 pointer-events-none z-30">
+          <div class="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-500 mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-8 h-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h4 class="font-display text-2xl font-black text-huus-dark uppercase tracking-tight mb-2">SOLICITUD REGISTRADA</h4>
+          <p class="text-xs sm:text-sm text-neutral-500 max-w-sm font-light leading-relaxed mb-8">
+            Tu consulta de factibilidad ha sido ingresada al NOC. Un Ingeniero de Soluciones Senior te contactará en un lapso no mayor a 15 minutos hábiles.
+          </p>
+          <button 
+            id="reset-form-btn" 
+            class="px-8 py-3.5 rounded-xl border border-black/10 bg-white text-huus-dark font-display text-xs font-bold uppercase tracking-[0.2em] transition-all hover:border-huus-thistle hover:scale-105 cursor-pointer shadow-sm"
+          >
+            NUEVA CONSULTA
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Wizard dynamic logic script -->
+<script>
+  let currentStep = 1;
+  const totalSteps = 3;
+
+  // Header display handles
+  const stepTitleDisplay = document.getElementById('step-title-display');
+  const stepCountDisplay = document.getElementById('step-count-display');
+  const stepProgressBar = document.getElementById('step-progress-bar');
+
+  // Step panes handles
+  const step1 = document.getElementById('form-step-1');
+  const step2 = document.getElementById('form-step-2');
+  const step3 = document.getElementById('form-step-3');
+
+  // Control buttons handles
+  const backBtn = document.getElementById('wizard-back-btn');
+  const nextBtn = document.getElementById('wizard-next-btn') as HTMLButtonElement;
+  const nextBtnText = nextBtn?.querySelector('span');
+  const nextBtnArrow = document.getElementById('wizard-btn-arrow');
+
+  // Input handles
+  const inputNombre = document.getElementById('nombre') as HTMLInputElement;
+  const inputEmail = document.getElementById('email') as HTMLInputElement;
+  const inputEmpresa = document.getElementById('empresa') as HTMLInputElement;
+  const inputTelefono = document.getElementById('telefono') as HTMLInputElement;
+  const inputServicio = document.getElementById('servicio') as HTMLSelectElement;
+  const inputMensaje = document.getElementById('mensaje') as HTMLTextAreaElement;
+
+  // Titles mapping
+  const stepTitles = {
+    1: "1. IDENTIFICACIÓN",
+    2: "2. LA EMPRESA",
+    3: "3. DETALLES DEL ENLACE"
+  };
+
+  // Helper functions for validating inputs
+  function showError(inputEl: HTMLElement, show: boolean) {
+    const parent = inputEl.parentElement;
+    const errorMsg = parent?.querySelector('.error-msg');
+    if (show) {
+      inputEl.classList.add('border-red-400');
+      errorMsg?.classList.remove('opacity-0');
+      errorMsg?.classList.add('opacity-100');
+    } else {
+      inputEl.classList.remove('border-red-400');
+      errorMsg?.classList.remove('opacity-100');
+      errorMsg?.classList.add('opacity-0');
+    }
+  }
+
+  function validateStep(step: number): boolean {
+    let isValid = true;
+    
+    if (step === 1) {
+      if (!inputNombre?.value.trim()) {
+        showError(inputNombre, true);
+        isValid = false;
+      } else {
+        showError(inputNombre, false);
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!inputEmail?.value.trim() || !emailRegex.test(inputEmail.value)) {
+        showError(inputEmail, true);
+        isValid = false;
+      } else {
+        showError(inputEmail, false);
+      }
+    } 
+    else if (step === 2) {
+      if (!inputEmpresa?.value.trim()) {
+        showError(inputEmpresa, true);
+        isValid = false;
+      } else {
+        showError(inputEmpresa, false);
+      }
+
+      const telRegex = /^\+?[0-9\s-]{10,20}$/;
+      if (!inputTelefono?.value.trim() || !telRegex.test(inputTelefono.value)) {
+        showError(inputTelefono, true);
+        isValid = false;
+      } else {
+        showError(inputTelefono, false);
+      }
+    } 
+    else if (step === 3) {
+      if (!inputServicio?.value) {
+        showError(inputServicio, true);
+        isValid = false;
+      } else {
+        showError(inputServicio, false);
+      }
+
+      if (!inputMensaje?.value.trim()) {
+        showError(inputMensaje, true);
+        isValid = false;
+      } else {
+        showError(inputMensaje, false);
+      }
+    }
+
+    return isValid;
+  }
+
+  function updateWizardUI() {
+    // 1. Update progress bar & headers
+    if (stepTitleDisplay) stepTitleDisplay.innerText = stepTitles[currentStep as 1 | 2 | 3];
+    if (stepCountDisplay) stepCountDisplay.innerText = `PASO ${currentStep} DE ${totalSteps}`;
+    if (stepProgressBar) {
+      const percentage = (currentStep / totalSteps) * 100;
+      stepProgressBar.style.width = `${percentage}%`;
+    }
+
+    // 2. Toggle panes with slide animation
+    const panes = [
+      { el: step1, num: 1 },
+      { el: step2, num: 2 },
+      { el: step3, num: 3 }
+    ];
+
+    panes.forEach(pane => {
+      if (pane.num === currentStep) {
+        pane.el?.classList.remove('hidden');
+        setTimeout(() => {
+          pane.el?.classList.remove('opacity-0', 'translate-x-12');
+        }, 50);
+      } else {
+        pane.el?.classList.add('opacity-0', 'translate-x-12');
+        setTimeout(() => {
+          pane.el?.classList.add('hidden');
+        }, 150);
+      }
+    });
+
+    // 3. Toggle back button
+    if (currentStep > 1) {
+      backBtn?.classList.remove('hidden');
+    } else {
+      backBtn?.classList.add('hidden');
+    }
+
+    // 4. Update next/submit button copy and arrow icon
+    if (nextBtnText) {
+      if (currentStep === totalSteps) {
+        nextBtnText.innerText = "Enviar Solicitud";
+        if (nextBtnArrow) nextBtnArrow.style.display = 'inline-block';
+      } else {
+        nextBtnText.innerText = "Continuar";
+        if (nextBtnArrow) nextBtnArrow.style.display = 'inline-block';
+      }
+    }
+  }
+
+  // Next / Continue button click handler
+  nextBtn?.addEventListener('click', () => {
+    // Validate current step before advancing
+    if (!validateStep(currentStep)) return;
+
+    if (currentStep < totalSteps) {
+      currentStep++;
+      updateWizardUI();
+    } else {
+      // SUBMIT THE FORM (Simulate)
+      if (nextBtnText) nextBtnText.innerText = "VERIFICANDO...";
+      nextBtn.disabled = true;
+      
+      const successOverlay = document.getElementById('success-overlay');
+      setTimeout(() => {
+        if (successOverlay) {
+          successOverlay.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
+        }
+        nextBtn.disabled = false;
+      }, 1500);
+    }
+  });
+
+  // Back button click handler
+  backBtn?.addEventListener('click', () => {
+    if (currentStep > 1) {
+      currentStep--;
+      updateWizardUI();
+    }
+  });
+
+  // Keypress listener for validating live
+  [inputNombre, inputEmail, inputEmpresa, inputTelefono, inputServicio, inputMensaje].forEach(input => {
+    input?.addEventListener('input', () => {
+      // Clear errors on edit
+      showError(input, false);
+    });
+  });
+
+  // Form Reset functionality
+  const resetBtn = document.getElementById('reset-form-btn');
+  const form = document.getElementById('huus-contact-form') as HTMLFormElement;
+  resetBtn?.addEventListener('click', () => {
+    form?.reset();
+    currentStep = 1;
+    updateWizardUI();
+
+    const successOverlay = document.getElementById('success-overlay');
+    if (successOverlay) {
+      successOverlay.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
+    }
+  });
+</script>
